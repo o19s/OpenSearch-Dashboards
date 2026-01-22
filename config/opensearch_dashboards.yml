@@ -23,7 +23,7 @@
 # server.name: "your-hostname"
 
 # The URLs of the OpenSearch instances to use for all your queries.
-# opensearch.hosts: ["http://localhost:9200"]
+opensearch.hosts: ["http://chorus-opensearch-edition.dev.o19s.com:9200"]
 
 # OpenSearch Dashboards uses an index in OpenSearch to store saved searches, visualizations and
 # dashboards. OpenSearch Dashboards creates a new index if the index doesn't already exist.
@@ -167,7 +167,7 @@
 
 # Set the value of this setting to true to log all events, including system usage information
 # and all requests.
-# logging.verbose: true
+logging.verbose: true
 
 # Set the interval in milliseconds to sample system and process performance
 # metrics. Minimum is 100ms. Defaults to 5000.
@@ -426,3 +426,22 @@
 # @experimental Set the value to true to enable context provider
 # contextProvider:
 #   enabled: true
+
+
+# Enable workspace and explore features
+workspace.enabled: true
+explore.enabled: true
+
+# OSART plugin configuration
+osart:
+  enabled: true
+  agUiUrl: "http://localhost:8001/runs"
+  timeout: 300000
+  retries: 3
+  allowDevFallback: true
+
+# CSP rules for AG-UI integration
+csp.rules:
+  - "script-src 'unsafe-eval' 'unsafe-inline' 'self'"
+  - "worker-src blob: 'self'"
+  - "style-src 'unsafe-inline' 'self'"
