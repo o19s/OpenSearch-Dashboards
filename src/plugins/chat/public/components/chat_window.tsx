@@ -198,12 +198,6 @@ const ChatWindowContent = React.forwardRef<ChatWindowInstance, ChatWindowProps>(
     setIsStreaming(true);
 
     try {
-      // Prepare additional messages for sending (but don't add to timeline yet)
-      const additionalMessages = options?.messages ?? [];
-
-      // Merge additional messages with current timeline for sending
-      const messagesToSend = [...timeline, ...additionalMessages];
-
       const { observable, userMessage } = await chatService.sendMessage(
         messageContent,
         messages
