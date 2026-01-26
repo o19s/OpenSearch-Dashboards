@@ -418,14 +418,14 @@ logging.verbose: true
 # explore.discoverMetrics.enabled: true
 
 # @experimental Set the enabled value to true and provide an AG-UI agent to enable chat
-# chat:
-  # enabled: true
-  # agUiUrl: "http://your-ai-agent-url:port"
+chat:
+  enabled: true
+  agUiUrl: "http://localhost:8001/runs"
   # mlCommonsAgentId: "olly-chat-agent-id"
 
 # @experimental Set the value to true to enable context provider
-# contextProvider:
-#   enabled: true
+contextProvider:
+   enabled: true
 
 
 # Enable workspace and explore features
