@@ -87,8 +87,6 @@ export class QueryEnhancementsPlugin
 
     const getCapabilitiesResolver = () => this.capabilitiesResolver;
 
-    const getCapabilitiesResolver = () => this.capabilitiesResolver;
-
     // @ts-ignore https://github.com/opensearch-project/openSearch-Dashboards/issues/4274
     core.http.registerRouteHandlerContext('query_assist', () => ({
       logger: this.logger,

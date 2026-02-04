@@ -46,7 +46,32 @@ const patchFile = async (file, patch) => {
   await fs.writeFile(file, fileContent);
 };
 
+/**
+ * Fix module resolution for Cypress/Electron: es-abstract expects safe-regex-test
+ * in its node_modules, but Yarn hoists it to the root. Create a symlink so
+ * require('safe-regex-test') from es-abstract resolves.
+ */
+const fixEsAbstractSafeRegexTest = async () => {
+  const path = require('path');
+  const esAbstractNodeModules = path.join('node_modules', 'es-abstract', 'node_modules');
+  const safeRegexTestNested = path.join(esAbstractNodeModules, 'safe-regex-test');
+  const safeRegexTestRoot = path.join('node_modules', 'safe-regex-test');
+  try {
+    await fs.access(safeRegexTestRoot);
+    await fs.mkdir(esAbstractNodeModules, { recursive: true });
+    try {
+      await fs.access(safeRegexTestNested);
+    } catch {
+      await fs.symlink(path.join('..', '..', 'safe-regex-test'), safeRegexTestNested);
+    }
+  } catch {
+    // Root safe-regex-test not present; nothing to fix
+  }
+};
+
 const run = async () => {
+  await fixEsAbstractSafeRegexTest();
+
   const promises = await removeUnwantedFolders('node_modules', ['demo', 'example', 'examples']);
 
   promises.push(
