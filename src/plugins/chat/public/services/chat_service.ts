@@ -16,6 +16,7 @@ import {
   ChatServiceStart,
   ChatWindowState,
   WorkspacesStart,
+  HttpSetup,
   Event,
   EventType,
 } from '../../../../core/public';
