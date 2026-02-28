@@ -108,7 +108,8 @@ jobs:
 
       - name: Upload Code Coverage
         id: upload-code-coverage
-        if: secrets.CODECOV_TOKEN != ''
+        # Only run in the main repo (secrets not available in step if conditions)
+        if: github.repository_owner == 'opensearch-project'
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
