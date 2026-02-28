@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   update-changelog:
+    if: github.repository == 'opensearch-project/OpenSearch-Dashboards'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository

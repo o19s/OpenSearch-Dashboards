@@ -38,6 +38,7 @@ env:
 
 jobs:
   cypress-tests:
+    if: github.repository == 'opensearch-project/OpenSearch-Dashboards'
     runs-on: ubuntu-latest
     container:
       image: docker://opensearchstaging/ci-runner:ci-runner-rockylinux8-opensearch-dashboards-integtest-v2

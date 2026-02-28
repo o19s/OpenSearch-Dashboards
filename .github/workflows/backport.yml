@@ -14,8 +14,10 @@ jobs:
     name: Backport
     # Only react to merged PRs for security reasons.
     # See https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_target.
+    # Only run on upstream repo (requires opensearch-trigger-bot GitHub App).
     if: >
-      github.event.pull_request.merged
+      github.repository == 'opensearch-project/OpenSearch-Dashboards'
+      && github.event.pull_request.merged
       && (
         github.event.action == 'closed'
         || (
