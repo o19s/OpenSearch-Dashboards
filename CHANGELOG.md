@@ -113,6 +113,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
  - Remove meta field for prometheus data-connection ([#11280](https://github.com/opensearch-project/OpenSearch-Dashboards/pull/11280))
  - Histogram x-axis incorrectly have type 'category' ([#11298](https://github.com/opensearch-project/OpenSearch-Dashboards/pull/11298))
  - Fix new discover logs table overflow ([#11310](https://github.com/opensearch-project/OpenSearch-Dashboards/pull/11310))
+- [Chat] Add OBO token caching with proactive refresh for AG-UI forwarding ([#11610](https://github.com/opensearch-project/OpenSearch-Dashboards/pull/11610))
 
 ### 🚞 Infrastructure
 
